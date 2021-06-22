@@ -84,7 +84,7 @@ function orderAlphabetically(arr) {
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(arr) {
   if (!arr || !arr[0]) return null;
-  let newMovies = [...arr];
+  let newMovies = JSON.parse(JSON.stringify(arr)); // The Objects were being copies by reference with [...arr].
   for (let i = 0; i < newMovies.length; i++) {
     let times = newMovies[i].duration.toString().split(' '); // THIS LINE RIGHT HERE BROUGHT ME HELL, toString is needed despite the property being a string.
     let cleanHours = 0;
